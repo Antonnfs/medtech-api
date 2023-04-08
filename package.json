@@ -1,0 +1,24 @@
+{
+  "name": "fullstack-interview-main",
+  "version": "1.0.0",
+  "description": "These are instructions for your coding exercise. Please read them carefully and make sure to ask whatever question pops into your mind.",
+  "main": "src/index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Anton Pylypenko <anton.nfs1@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
