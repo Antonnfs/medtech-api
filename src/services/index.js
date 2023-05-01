@@ -25,11 +25,9 @@ export const filterAvailableDates = (availableDates, date) =>
          Number(dates.from) <= Number(date) && Number(date) <= Number(dates.to)
    );
 
-export const paginateData = (req, sourceData = []) => {
-   const limit = parseInt(req.query?.limit) || 10;
+export const paginateData = (page = 1, limit = 10, sourceData = []) => {
    const pageCount = Math.ceil(sourceData.length / limit) || 1;
-   let page = parseInt(req.query.page) || 1;
    if (page > pageCount) page = pageCount;
    const data = sourceData.slice(page * limit - limit, page * limit);
-   return { data, page, pageCount };
+   return { data, pageCount };
 };

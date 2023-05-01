@@ -40,7 +40,7 @@ export const filterByScore = (req, res, next) => {
 };
 
 export const filterByDate = (req, res) => {
-   const { date } = req.query;
+   const { date, page, limit } = req.query;
    if (!date) res.status(400).send("Date does not provided.");
    if (!moment.unix(date).isValid()) res.status(400).send("Bad date format.");
    const filteredByDate = req.filteredProviders.filter((provider) => {
@@ -48,7 +48,7 @@ export const filterByDate = (req, res) => {
       if (filtered.length) return provider;
    });
    const sourceData = filteredByDate.map((provider) => provider.name);
-   const { data, page, pageCount } = paginateData(req, sourceData);
+   const { data, pageCount } = paginateData(page, limit, sourceData);
    res.json(data);
    // res.json({ data, page, pageCount }); // <-- in case we want to provide pagination data
 };
